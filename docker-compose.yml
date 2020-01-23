@@ -46,3 +46,21 @@ services:
         - config-service
       links:
         - config-service
+
+#    gateway-service:
+#      build: ./gateway-service
+#      ports:
+#        - 8060:8060
+#      depends_on:
+#        - config-service
+#      links:
+#        - config-service
+
+    proxy-service:
+      build: ./proxy-service
+      ports:
+        - 8060:8060
+      depends_on:
+        - config-service
+      links:
+        - config-service
